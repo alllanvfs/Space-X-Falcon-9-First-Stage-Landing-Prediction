@@ -1,6 +1,6 @@
 # Predição de Sucesso de Pouso do Primeiro Estágio do Falcon 9 da SpaceX
 
-![Falcon 9 pousando](https://media.flyingmag.com/flyingmag.com/wp-content/uploads/2016/05/Falcon-9-landing-precision.jpg)
+![Falcon 9 pousando](https://i.ytimg.com/vi/D0yhZ0ZhRjo/maxresdefault.jpg)
 ## 📖 Visão Geral do Projeto
 
 Este projeto consiste em um pipeline completo de Ciência de Dados com o objetivo de prever se o primeiro estágio do foguete Falcon 9 da SpaceX pousará com sucesso. A reutilização de foguetes é um fator chave para a redução de custos em lançamentos espaciais, e prever a probabilidade de sucesso de um pouso com base em dados de pré-lançamento é de grande valor comercial.
