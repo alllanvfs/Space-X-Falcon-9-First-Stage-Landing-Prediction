@@ -20,8 +20,6 @@ O processo abrange desde a coleta de dados de múltiplas fontes, passando pela l
     * [4. Análise Preditiva](#4-análise-preditiva)
 * [Principais Resultados da Análise](#-principais-resultados-da-análise)
 * [🛠️ Tecnologias Utilizadas](#-tecnologias-utilizadas)
-* [🚀 Como Executar o Projeto](#-como-executar-o-projeto)
-* [📂 Estrutura dos Arquivos](#-estrutura-dos-arquivos)
 
 ---
 
