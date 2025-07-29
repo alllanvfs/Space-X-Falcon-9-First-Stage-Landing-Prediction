@@ -1,82 +1,83 @@
-# Predição de Sucesso de Pouso do Primeiro Estágio do Falcon 9 da SpaceX
+# SpaceX Falcon 9 First Stage Landing Prediction
 
-![Falcon 9 pousando](https://i.ytimg.com/vi/D0yhZ0ZhRjo/maxresdefault.jpg)
-## 📖 Visão Geral do Projeto
+![Falcon 9 Landing](https://i.ytimg.com/vi/D0yhZ0ZhRjo/maxresdefault.jpg)
 
-Este projeto consiste em um pipeline completo de Ciência de Dados com o objetivo de prever se o primeiro estágio do foguete Falcon 9 da SpaceX pousará com sucesso. A reutilização de foguetes é um fator chave para a redução de custos em lançamentos espaciais, e prever a probabilidade de sucesso de um pouso com base em dados de pré-lançamento é de grande valor comercial.
+## 📖 Project Overview
 
-O processo abrange desde a coleta de dados de múltiplas fontes, passando pela limpeza e análise exploratória, até a preparação de um dataset para treinar e avaliar modelos de Machine Learning.
+This project consists of a complete Data Science pipeline aimed at predicting whether the first stage of the SpaceX Falcon 9 rocket will land successfully. Rocket reusability is a key factor in reducing space launch costs, and predicting the probability of a successful landing based on pre-launch data is of great commercial value.
 
----
-
-## 📋 Índice
-
-* [Objetivos do Projeto](#-objetivos-do-projeto)
-* [Metodologia](#-metodologia)
-    * [1. Coleta de Dados](#1-coleta-de-dados)
-    * [2. Data Wrangling (Processamento de Dados)](#2-data-wrangling-processamento-de-dados)
-    * [3. Análise Exploratória de Dados (EDA)](#3-análise-exploratória-de-dados-eda)
-    * [4. Análise Preditiva](#4-análise-preditiva)
-* [Principais Resultados da Análise](#-principais-resultados-da-análise)
-* [🛠️ Tecnologias Utilizadas](#-tecnologias-utilizadas)
+The process covers everything from data collection from multiple sources, through cleaning and exploratory analysis, to preparing a dataset to train and evaluate Machine Learning models.
 
 ---
 
-## 🎯 Objetivos do Projeto
+## 📋 Table of Contents
 
-As principais questões que este projeto busca responder são:
-
-1.  Quais são os fatores chave (local de lançamento, órbita, massa da carga útil, etc.) que mais influenciam o sucesso de um pouso?
-2.  Quais configurações de lançamento apresentam a maior taxa de sucesso histórico?
-3.  É possível construir um modelo de classificação preciso para prever o resultado de um pouso com base nos parâmetros da missão?
+* [Project Objectives](#-project-objectives)
+* [Methodology](#-methodology)
+    * [1. Data Collection](#1-data-collection)
+    * [2. Data Wrangling](#2-data-wrangling)
+    * [3. Exploratory Data Analysis (EDA)](#3-exploratory-data-analysis-eda)
+    * [4. Predictive Analysis](#4-predictive-analysis)
+* [Key Analysis Results](#-key-analysis-results)
+* [🛠️ Technologies Used](#-technologies-used)
 
 ---
 
-## ⚙️ Metodologia
+## 🎯 Project Objectives
 
-O projeto segue um pipeline de Ciência de Dados bem definido:
+The main questions this project aims to answer are:
 
-### 1. Coleta de Dados
+1.  What are the key factors (launch site, orbit, payload mass, etc.) that most influence a successful landing?
+2.  Which launch configurations have the highest historical success rate?
+3.  Is it possible to build an accurate classification model to predict the outcome of a landing based on mission parameters?
 
-* **API REST da SpaceX:** Os dados primários foram coletados programaticamente da API pública da SpaceX (`v4`), obtendo informações detalhadas sobre lançamentos, foguetes, cargas úteis e locais de lançamento.
-* **Web Scraping:** Para complementar e validar os dados de pouso, foi utilizada a técnica de web scraping na página da Wikipedia "List of Falcon 9 and Falcon Heavy launches" com a biblioteca `BeautifulSoup`.
+---
 
-### 2. Data Wrangling (Processamento de Dados)
+## ⚙️ Methodology
 
-* **Limpeza e Filtragem:** Foram tratados valores ausentes (ex: `PayloadMass`) e os dados foram filtrados para focar exclusivamente nos lançamentos do foguete Falcon 9.
-* **Engenharia de Features:** A variável alvo `Class` foi criada, convertendo os resultados textuais de pouso (ex: "Success (drone ship)") em um formato binário (1 para sucesso, 0 para falha), tornando o problema adequado para um modelo de classificação.
+The project follows a well-defined Data Science pipeline:
 
-### 3. Análise Exploratória de Dados (EDA)
+### 1. Data Collection
 
-* **Análise com SQL:** Foram realizadas consultas SQL para extrair insights rápidos e responder a perguntas específicas de negócio, como a taxa de sucesso por local ou a massa média de carga para missões da NASA.
-* **Visualização de Dados:** Utilizando `Seaborn` e `Matplotlib`, foram criados gráficos (barras, dispersão) para visualizar a relação entre as variáveis e a taxa de sucesso dos pousos.
+* **SpaceX REST API:** Primary data was programmatically collected from the public SpaceX API (`v4`), obtaining detailed information about launches, rockets, payloads, and launch sites.
+* **Web Scraping:** To supplement and validate landing data, web scraping was performed on the Wikipedia page "List of Falcon 9 and Falcon Heavy launches" using the `BeautifulSoup` library.
 
-### 4. Análise Preditiva
+### 2. Data Wrangling
 
-* O dataset final foi preparado para a modelagem de Machine Learning.
-* Foram definidos os frameworks para treinar e avaliar diferentes algoritmos de classificação, como:
-    * Regressão Logística
+* **Cleaning and Filtering:** Missing values (e.g., `PayloadMass`) were handled, and the data was filtered to focus exclusively on Falcon 9 rocket launches.
+* **Feature Engineering:** The target variable `Class` was created by converting textual landing outcomes (e.g., "Success (drone ship)") into a binary format (1 for success, 0 for failure), making the problem suitable for a classification model.
+
+### 3. Exploratory Data Analysis (EDA)
+
+* **SQL Analysis:** SQL queries were performed to extract quick insights and answer specific business questions, such as the success rate by location or the average payload mass for NASA missions.
+* **Data Visualization:** Using `Seaborn` and `Matplotlib`, charts (bar, scatter) were created to visualize the relationship between variables and the landing success rate.
+
+### 4. Predictive Analysis
+
+* The final dataset was prepared for Machine Learning modeling.
+* Frameworks were defined to train and evaluate different classification algorithms, such as:
+    * Logistic Regression
     * Support Vector Machine (SVM)
-    * Árvore de Decisão
+    * Decision Tree
     * K-Nearest Neighbors (KNN)
-* A otimização de hiperparâmetros com `GridSearchCV` foi planejada para encontrar a melhor performance para cada modelo.
+* Hyperparameter optimization using `GridSearchCV` was planned to find the best performance for each model.
 
 ---
 
-## 📊 Principais Resultados da Análise
+## 📊 Key Analysis Results
 
-A análise exploratória revelou que a taxa de sucesso dos pousos é fortemente influenciada por uma combinação de fatores, incluindo:
-* **Local de Lançamento:** Diferentes bases de lançamento apresentam taxas de sucesso distintas.
-* **Tipo de Órbita:** Órbitas como GTO (Órbita de Transferência Geoestacionária) historicamente apresentaram maior dificuldade para o sucesso do pouso.
-* **Massa da Carga Útil:** Existe uma correlação visível entre a massa da carga e o resultado do pouso.
+The exploratory analysis revealed that the landing success rate is strongly influenced by a combination of factors, including:
+* **Launch Site:** Different launch sites show distinct success rates.
+* **Orbit Type:** Orbits like GTO (Geostationary Transfer Orbit) have historically presented greater difficulty for successful landings.
+* **Payload Mass:** There is a visible correlation between the payload mass and the landing outcome.
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## 🛠️ Technologies Used
 
-* **Linguagem:** Python
-* **Bibliotecas de Análise:** Pandas, NumPy
-* **Coleta de Dados:** Requests, BeautifulSoup
-* **Banco de Dados:** SQLite
-* **Visualização:** Matplotlib, Seaborn, Folium
+* **Language:** Python
+* **Analysis Libraries:** Pandas, NumPy
+* **Data Collection:** Requests, BeautifulSoup
+* **Database:** SQLite
+* **Visualization:** Matplotlib, Seaborn, Folium
 * **Machine Learning:** Scikit-learn
